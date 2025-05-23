@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mouse Escape Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="modeMenu">
+    <h2>Select Mode</h2>
+    <button onclick="setMode('easy')">Easy</button>
+    <button onclick="setMode('normal')">Normal</button>
+    <button onclick="setMode('hard')">Hard</button>
+  </div>
+  <div id="gameArea">
+    <div id="info">Level: 1 | Time: 0s</div>
+    <div id="cursor"></div>
+    <div id="gameOverScreen">
+      <h1>💥 Game Over!</h1>
+      <p id="finalStats"></p>
+      <button onclick="location.reload()">Play Again</button>
+    </div>
+  </div>
+  <audio id="loseSound" src="assets/lose.mp3"></audio>
+  <audio id="bgMusic" src="assets/music.mp3" loop autoplay></audio>
+  <script src="script.js"></script>
+</body>
+</html>

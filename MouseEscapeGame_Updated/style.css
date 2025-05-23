@@ -1,0 +1,148 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1d2b64, #f8cdda);
+  transition: background 1s ease;
+}
+
+#gameArea {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#cursor {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: #00ffc8;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #00ffc8, 0 0 25px #00ffc8 inset;
+  pointer-events: none;
+  animation: pulse 1s infinite;
+  z-index: 10;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.enemy {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px red;
+}
+
+.enemy.normal { background-color: crimson; }
+.enemy.exploder { background-color: orange; animation: blink 0.6s infinite; }
+.enemy.fast { background-color: lime; }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.explosion {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #ff5555, transparent);
+  border-radius: 50%;
+  animation: explode 0.4s ease-out forwards;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+#info {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 20px;
+  color: white;
+  z-index: 999;
+  box-shadow: 0 0 10px black;
+}
+
+#gameOverScreen {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.9);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2000;
+}
+
+#gameOverScreen.show {
+  display: flex;
+}
+
+#gameOverScreen h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+#gameOverScreen button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #00ffc8;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #000;
+  transition: 0.3s;
+}
+
+#gameOverScreen button:hover {
+  background: #00c9a0;
+}
+
+#modeMenu {
+  position: absolute;
+  z-index: 3000;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  background: rgba(0, 0, 0, 0.95);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+#modeMenu button {
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 20px;
+  background-color: #00ffc8;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#modeMenu button:hover {
+  background-color: #00c9a0;
+}
